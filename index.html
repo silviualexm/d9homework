@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+    
+</head>
+<body>
+
+    <script>
+        window.addEventListener("DOMContentLoaded", function(){
+        console.log("DOM is loaded")
+        })
+
+        let body = document.querySelector('body')
+        let title = document.createElement('h1')
+        title.innerText = "Best Bingo Game"
+        body.appendChild(title)
+
+        let inButton = document.createElement('input')
+        inButton.classList.add('randomize')
+        inButton.setAttribute('type', 'button')
+        inButton.setAttribute('value', 'Randomize Number')
+        body.appendChild(inButton)
+
+        let display = document.createElement('input')
+        display.classList.add('display')
+        display.setAttribute('type', 'text')
+        body.appendChild(display)
+
+        let bingoBoard = document.createElement('div')
+        bingoBoard.setAttribute('id', 'divBoard')
+        body.appendChild(bingoBoard)
+        
+        const createBoard = function(){
+            for (let i=0; i<79; i++) {
+            let boardCell = document.createElement('div')
+            boardCell.classList.add('divCel')
+            boardCell.innerText = i + 1
+            bingoBoard.appendChild(boardCell)
+            }
+
+        }
+        createBoard()
+
+        const randomize = function (min, max){
+            return Math.random() * (max - min) + min
+        }
+        console.log(randomize(1, 79))
+        inButton.addEventListener('onclick', 'randomize(1, 79)' )
+
+    </script>
+    <!--
+        BINGO CHALLENGE!!!
+        Create programmatically (with JS) a BINGO board with 76 cells, from 1 to 76.
+        Create a button to randomize a number from 1 to 76. The same number should be highlighted on the bingo board
+
+        EXTRA: 
+        - Take ALWAYS a new number (avoid randoming 10 3 times for example)
+        - Create a USER BOARD with random 24 numbers that highlights as the main board does
+        - Let the user choose HOW MANY user boards he's willing to play with and create them.
+    -->
+
+
+
+</body>
+</html>
