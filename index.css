@@ -11,15 +11,17 @@ h1 {
 
 input {
     border: 1px solid black;
-    border-radius: 3px;
+    border-radius: 8px;
     width: 300px;
     min-height: 40px;
+    background-color: yellowgreen;
     
 }
-
-input[type=button] {
+input[type = "button"] {
     cursor: pointer;
 }
+
+
 #divBoard {
     width: 500px;
     height: 200px;
@@ -27,13 +29,17 @@ input[type=button] {
     background-color: sienna;
 }
 div.divCel {
-    color: red;
-    background-color: cornsilk;
+    color: black;
+    
     display: inline-table;
     position: relative;
     width: 14%;
     text-align: center;
     border: 1px;
+    border-radius: 6px;
     height: 30px;
     border: 1px solid transparent;
+}
+.display {
+    text-align: center;
 }
