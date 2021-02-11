@@ -1,0 +1,39 @@
+body {
+    background-color: lightskyblue;
+    margin: 0, auto;
+    font-size: 20px;
+}
+
+h1 {
+    color: darkblue;
+    text-align: center;
+}
+
+input {
+    border: 1px solid black;
+    border-radius: 3px;
+    width: 300px;
+    min-height: 40px;
+    
+}
+
+input[type=button] {
+    cursor: pointer;
+}
+#divBoard {
+    width: 500px;
+    height: 200px;
+    display: inline-table;
+    background-color: sienna;
+}
+div.divCel {
+    color: red;
+    background-color: cornsilk;
+    display: inline-table;
+    position: relative;
+    width: 14%;
+    text-align: center;
+    border: 1px;
+    height: 30px;
+    border: 1px solid transparent;
+}
