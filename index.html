@@ -11,9 +11,9 @@
 <body>
 
     <script>
-        window.addEventListener("DOMContentLoaded", function(){
-        console.log("DOM is loaded")
-        })
+       // window.addEventListener("DOMContentLoaded", function(){
+        //console.log("DOM is loaded")
+        //})
 
         let body = document.querySelector('body')
         let title = document.createElement('h1')
@@ -21,38 +21,84 @@
         body.appendChild(title)
 
         let inButton = document.createElement('input')
-        inButton.classList.add('randomize')
+        inButton.className = 'randomize'
         inButton.setAttribute('type', 'button')
-        inButton.setAttribute('value', 'Randomize Number')
+        inButton.setAttribute('value', 'Click to Randomize Number')
         body.appendChild(inButton)
 
         let display = document.createElement('input')
-        display.classList.add('display')
+        display.className = 'display'
         display.setAttribute('type', 'text')
         body.appendChild(display)
 
         let bingoBoard = document.createElement('div')
         bingoBoard.setAttribute('id', 'divBoard')
         body.appendChild(bingoBoard)
-        
-        const createBoard = function(){
-            for (let i=0; i<79; i++) {
-            let boardCell = document.createElement('div')
-            boardCell.classList.add('divCel')
-            boardCell.innerText = i + 1
-            bingoBoard.appendChild(boardCell)
-            }
 
-        }
-        createBoard()
+        //let test = document.getElementById('divBoard')
+        //console.log(test.innerHTML)
+        
 
         const randomize = function (min, max){
-            return Math.random() * (max - min) + min
+            return Math.floor(Math.random() * (max - min) + min)
+            //display.value = randomize(1, 79)
+            //console.log(display.value)
         }
-        console.log(randomize(1, 79))
-        inButton.addEventListener('onclick', 'randomize(1, 79)' )
+        
+        const random = function(e){
+            let num = randomize(1, 79)
+            console.log(num)
+            display.value = num
+            //console.log(display.value)
 
-    </script>
+            // All the paragraphs in the document
+            //var items = document.getElementsByTagName("p");
+            let boardCell = document.getElementsByClassName("divcel")
+            console.log(boardCell.length)
+
+            // For each item in the list,
+            // append the entire element as a string of HTML
+            var gross = "";
+            for (var i = 0; i < boardCell.length; i++) {
+              gross += boardCell[i];
+              console.log(gross[i])
+            }
+            //console.log(gross[0])
+
+// gross is now all the HTML for the paragraphs
+            
+            let x = boardCell.length // x e 0 aici
+            console.log(x)
+            //console.log(boardCell)
+            for(let i=0; i<boardCell.length; i++){  // e ceva cu boardCell, nu trece de conditie din cauza .length
+                //console.log(i)
+                if (2<3){
+                    console.log("ccceva")
+                    //boardCell[i].style.borderColor = "black"
+                    //boardCell[i].style.backgroundColor = "red"
+                    //display.value = ""
+                }
+                
+            }
+            
+
+            //alert('noua alerta')
+            //console.log("ceva")
+            //return randomize(1, 79)
+        }
+        let btn = document.querySelector('.randomize')
+        
+        btn.onclick = random //functia fara paranteze
+        
+        for (let i=0; i<79; i++) {
+            let boardCell = document.createElement('div')
+            boardCell.className = 'divCel'
+            boardCell.setAttribute('value', i + 1)
+            boardCell.innerText = i + 1
+            bingoBoard.appendChild(boardCell)
+            boardCell.style.borderColor = "black"
+        }
+        </script>
     <!--
         BINGO CHALLENGE!!!
         Create programmatically (with JS) a BINGO board with 76 cells, from 1 to 76.
@@ -63,8 +109,5 @@
         - Create a USER BOARD with random 24 numbers that highlights as the main board does
         - Let the user choose HOW MANY user boards he's willing to play with and create them.
     -->
-
-
-
 </body>
 </html>
